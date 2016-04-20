@@ -1,4 +1,7 @@
 import csv
+from re import sub
+from decimal import Decimal
+
 cleanCSVFile = 'cleanData.csv'
 f = open(cleanCSVFile,'wt')
 try:
@@ -24,6 +27,9 @@ with open('dataTemp.csv','rb') as csvfile:
             count = count + 1
         if row['Boat Price'] == '0':
             count = count + 1
+        else:
+            row['Boat Price'] = Decimal(sub(r'[^\d.]', '', row['Boat Price']))
+
         if row['Boat Class'] == '0':
             count = count + 1
         if row['Boat Category'] == '0':
