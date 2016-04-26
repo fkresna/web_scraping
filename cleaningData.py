@@ -15,32 +15,32 @@ with open('dataTemp.csv','rb') as csvfile:
     count = 0
     count2 = 0
     for row in reader:
-        if row['Boat Year'] == '0':
+        if row['Boat Year'] == '0' or row['Boat Year'] == "":
             count = count + 1
-        if row['Boat Model'] == '0':
+        if row['Boat Model'] == '0' or row['Boat Model'] == "":
             count = count + 1
-        if row['Boat Make'] == '0':
+        if row['Boat Make'] == '0' or row['Boat Make'] == "": 
             count = count + 1
-        if row['Seller Name'] == '0':
+        if row['Seller Name'] == '0' or row['Seller Name'] == '':
             count = count + 1
-        if row['Postal Code'] == '0':
+        if row['Postal Code'] == '0' or row['Postal Code'] == '':
             count = count + 1
-        if row['Boat Price'] == '0':
+        if row['Boat Price'] == '0' or row['Boat Price'] == '':
             count = count + 1
         else:
             row['Boat Price'] = Decimal(sub(r'[^\d.]', '', row['Boat Price']))
 
-        if row['Boat Class'] == '0':
+        if row['Boat Class'] == '0' or row['Boat Class'] == '':
             count = count + 1
-        if row['Boat Category'] == '0':
+        if row['Boat Category'] == '0' or row['Boat Category'] == '':
             count = count + 1
-        if row['Boat Length'] == '0':
+        if row['Boat Length'] == '0' or row['Boat Length'] == '':
             count = count + 1
-        if row['Propolsion Type'] == '0':
+        if row['Propolsion Type'] == '0' or row['Propolsion Type'] == '':
             count = count + 1
-        if row['Hull Material'] == '0':
+        if row['Hull Material'] == '0' or row['Hull Material'] == '':
             count = count + 1
-        if row['Fuel Type'] == '0':
+        if row['Fuel Type'] == '0' or row['Fuel Type'] == '':
             count = count + 1
 
         if count == 0:
