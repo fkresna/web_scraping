@@ -7,7 +7,7 @@ cleanCSVFile = 'cleanData3.csv'
 f = open(cleanCSVFile,'wt')
 try:
     writer = csv.writer(f, quoting=csv.QUOTE_NONNUMERIC)
-    writer.writerow( ('Boat Year', 'Boat Model','Boat Make', 'Seller Name', 'Postal Code', 'Boat Price', 'Boat Class','Boat Category','Boat Length','Propolsion Type','Hull Material','Fuel Type','City','State') )
+    writer.writerow( ('Boat Year', 'Boat Model','Boat Make', 'Seller Name', 'Postal Code', 'Boat Price', 'Boat Class','Boat Category','Boat Length','Propolsion Type','Hull Material','Fuel Type','City','State','lat','lon') )
 finally:
     f.close()
 
@@ -27,7 +27,7 @@ with open('cleanData2.csv','rb') as csvfile:
                 if myzip != None:
                     try:
                         writer = csv.writer(f, quoting=csv.QUOTE_NONNUMERIC)
-                        writer.writerow((row['Boat Year'],row['Boat Model'],row['Boat Make'],row['Seller Name'],row['Postal Code'],row['Boat Price'],row['Boat Class'],row['Boat Category'],row['Boat Length'],row['Propolsion Type'],row['Hull Material'],row['Fuel Type'],myzip.city,myzip.state))
+                        writer.writerow((row['Boat Year'],row['Boat Model'],row['Boat Make'],row['Seller Name'],row['Postal Code'],row['Boat Price'],row['Boat Class'],row['Boat Category'],row['Boat Length'],row['Propolsion Type'],row['Hull Material'],row['Fuel Type'],myzip.city,myzip.state,myzip.lat,myzip.lon))
                         count2 = count2 + 1
                     finally:
                         f.close()

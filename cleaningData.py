@@ -36,6 +36,9 @@ with open('dataTemp.csv','rb') as csvfile:
             count = count + 1
         if row['Boat Length'] == '0' or row['Boat Length'] == '':
             count = count + 1
+        else:
+            bLength = row['Boat Length']
+            row['Boat Length'] = int(bLength[:len(bLength)-1])
         if row['Propolsion Type'] == '0' or row['Propolsion Type'] == '':
             count = count + 1
         if row['Hull Material'] == '0' or row['Hull Material'] == '':
