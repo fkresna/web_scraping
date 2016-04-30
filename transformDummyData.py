@@ -7,7 +7,7 @@ cleanCSVFile = 'dummyData.csv'
 f = open(cleanCSVFile,'wt')
 try:
     writer = csv.writer(f, quoting=csv.QUOTE_NONNUMERIC)
-    writer.writerow( ('Price', 'C.Pwc','C.Power','C.Sails','C.Small','F.Diesel','F.Electric','F.Gas','F.Other','F.Propane','P.Other','P.SingleIn','P.SingleOut','P.TripleOut','P.TwinIn','P.TwinOut','H.Aluminium','H.Composite','H.Ferro','H.Fiberglass','H.Hypalon','H.Other','H.Pvc','H.Roplene','H.Steel','H.Wood', 'eastCoast','fl'));
+    writer.writerow( ('Price', 'C.Pwc','C.Power','C.Sails','C.Small','F.Diesel','F.Electric','F.Gas','F.Other','F.Propane','P.Other','P.SingleIn','P.SingleOut','P.TripleOut','P.TwinIn','P.TwinOut','H.Aluminium','H.Composite','H.Ferro','H.Fiberglass','H.Hypalon','H.Other','H.Pvc','H.Roplene','H.Steel','H.Wood', 'eastCoast','fl','Length'));
 
 
 finally:
@@ -108,7 +108,7 @@ with open('cleanData3.csv','rb') as csvfile:
 
         try:
             writer = csv.writer(f, quoting=csv.QUOTE_NONNUMERIC)
-            writer.writerow((row['Boat Price'],pwc,power,sails,small,diesel,electric,gas,other,propane,pOther,pSingleIn,pSingleOut,pTripleOut,pTwinIn,pTwinOut,hAluminium, hComposite, hFerro, hFiberglass, hHypalon, hOther, hPvc, hRoplene, hSteel, hWood,eastCoast,fl ))
+            writer.writerow((row['Boat Price'],pwc,power,sails,small,diesel,electric,gas,other,propane,pOther,pSingleIn,pSingleOut,pTripleOut,pTwinIn,pTwinOut,hAluminium, hComposite, hFerro, hFiberglass, hHypalon, hOther, hPvc, hRoplene, hSteel, hWood,eastCoast,fl,row['Boat Length'] ))
             count2 = count2 + 1
         finally:
             f.close()
