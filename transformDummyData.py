@@ -7,7 +7,7 @@ cleanCSVFile = 'dummyData.csv'
 f = open(cleanCSVFile,'wt')
 try:
     writer = csv.writer(f, quoting=csv.QUOTE_NONNUMERIC)
-    writer.writerow( ('Price', 'C.Pwc','C.Power','C.Sails','C.Small','F.Diesel','F.Electric','F.Gas','F.Other','F.Propane','P.Other','P.SingleIn','P.SingleOut','P.TripleOut','P.TwinIn','P.TwinOut','H.Aluminium','H.Composite','H.Ferro','H.Fiberglass','H.Hypalon','H.Other','H.Pvc','H.Roplene','H.Steel','H.Wood', 'eastCoast'));
+    writer.writerow( ('Price', 'C.Pwc','C.Power','C.Sails','C.Small','F.Diesel','F.Electric','F.Gas','F.Other','F.Propane','P.Other','P.SingleIn','P.SingleOut','P.TripleOut','P.TwinIn','P.TwinOut','H.Aluminium','H.Composite','H.Ferro','H.Fiberglass','H.Hypalon','H.Other','H.Pvc','H.Roplene','H.Steel','H.Wood', 'eastCoast','fl'));
 
 
 finally:
@@ -19,6 +19,10 @@ with open('cleanData3.csv','rb') as csvfile:
     for row in reader:
     	f = open(cleanCSVFile, 'a')
         
+        fl = 0
+        if row['State'] == 'FL':
+            fl = 1
+
         eastCoast = 0
         if row['State'] == 'FL' or row['State'] == 'GA' or row['State'] == 'SC' or row['State'] == 'NC' or row['State'] == 'VA' or row['State'] == 'MD' or row['State'] == 'DE' or row['State'] == 'NJ' or row['State'] == 'NY' or row['State'] == 'CT' or row['State'] == 'RI' or row['State'] == 'MA' or row['State'] == 'NH' or row['State'] == 'ME':
             eastCoast = 1
@@ -104,7 +108,7 @@ with open('cleanData3.csv','rb') as csvfile:
 
         try:
             writer = csv.writer(f, quoting=csv.QUOTE_NONNUMERIC)
-            writer.writerow((row['Boat Price'],pwc,power,sails,small,diesel,electric,gas,other,propane,pOther,pSingleIn,pSingleOut,pTripleOut,pTwinIn,pTwinOut,hAluminium, hComposite, hFerro, hFiberglass, hHypalon, hOther, hPvc, hRoplene, hSteel, hWood,eastCoast ))
+            writer.writerow((row['Boat Price'],pwc,power,sails,small,diesel,electric,gas,other,propane,pOther,pSingleIn,pSingleOut,pTripleOut,pTwinIn,pTwinOut,hAluminium, hComposite, hFerro, hFiberglass, hHypalon, hOther, hPvc, hRoplene, hSteel, hWood,eastCoast,fl ))
             count2 = count2 + 1
         finally:
             f.close()
